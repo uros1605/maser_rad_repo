@@ -67,7 +67,8 @@ def ensure_log_header():
     if not LOG.exists():
         with LOG.open("w", newline="", encoding="utf-8") as f:
             w = csv.writer(f)
-            w.writerow(["ts","proto","secure","qos","interval","reason","privacy","mqtt_rtt_ms","coap_rtt_ms","temperature","humidity","lux","motion"])
+            w.writerow(["ts","proto","secure","qos","interval","reason","privacy",
+                        "mqtt_rtt_ms","coap_rtt_ms","temperature","humidity","lux","motion"])
 
 def main_loop():
     ensure_log_header()
