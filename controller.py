@@ -78,8 +78,10 @@ def main_loop():
         rtt_coap = measure_coap_rtt()
         pol = choose_policy(snap, rtt_mqtt, rtt_coap)
         send_payload(pol, snap)
-        row = [datetime.utcnow().isoformat()+"Z", pol["proto"], int(pol["secure"]), pol["qos"], pol["interval"], pol["reason"], pol.get("privacy",""),
-               rtt_mqtt, rtt_coap, snap.get("temperature"), snap.get("humidity"), snap.get("lux"), snap.get("motion")]
+        row = [datetime.utcnow().isoformat()+"Z", pol["proto"], int(pol["secure"]),
+               pol["qos"], pol["interval"], pol["reason"], pol.get("privacy",""),
+               rtt_mqtt, rtt_coap, snap.get("temperature"), snap.get("humidity"), 
+               snap.get("lux"), snap.get("motion")]
         with LOG.open("a", newline="", encoding="utf-8") as f:
             csv.writer(f).writerow(row)
         time.sleep(pol["interval"])
