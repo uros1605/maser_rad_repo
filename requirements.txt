@@ -1,0 +1,8 @@
+paho-mqtt
+aiocoap
+smbus2
+Adafruit_DHT
+RPi.GPIO
+matplotlib
+numpy
+scipy
